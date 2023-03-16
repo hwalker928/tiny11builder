@@ -12,10 +12,12 @@ Instructions:
 1. Download latest Windows 11 iso from Microsoft website (<https://www.microsoft.com/software-download/windows11>).
 2. Place the downloaded file in C:\windows11.iso (be sure to rename it so that it match that filename).
 3. Open a Powershell terminal with admin rights and run the following commands:
+
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\tiny11creator.ps1
 ```
+
 4. Sit back and relax :) (it runs for 13 minutes approximately on my old-but-decent laptop)
 5. When the image is completed, you will see it in c:\tiny11.iso
 
@@ -38,13 +40,13 @@ Your Phone,
 Media Player,
 Internet Explorer,
 LA57 support,
-OCR for en-us,
+OCR for en-gb,
 Speech support,
-TTS for en-us,
+TTS for en-gb,
 Media Player Legacy,
 Tablet PC Math
 
 Known issues:
 
 1. Microsoft Teams (personal) and Cortana are still here. If you find a way to remove them before I find one, feel free to help!
-2. Only en-us x64 is supported as of now. This can be easily fixable by the end user, just by replacing every instance of en-us with the language needed (like ro-RO and so on), and every x64 instance with arm64.
+2. Only en-gb x64 is supported as of now. This can be easily fixable by the end user, just by replacing every instance of en-gb with the language needed (like ro-RO and so on), and every x64 instance with arm64.
