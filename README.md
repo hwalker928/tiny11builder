@@ -2,7 +2,6 @@
 
 Scripts to build a trimmed-down Windows 11 image - forked from https://github.com/ianis58/tiny11builder
 
-My main goal is to use only Microsoft utilities like DISM, and nothing external. The only executable included is oscdimg.exe, which is provided in the Windows ADK (<https://learn.microsoft.com/fr-fr/windows-hardware/get-started/adk-install#download-the-adk-for-windows-11-version-22h2>) and it is used to create bootable ISO images. Also included is an unattended answer file, which is used to bypass the MS account on OOBE and to deploy the image with the /compact flag.
 It's open-source, so feel free to add or remove anything you want! Feedback is also much appreciated.
 
 Current and new Windows 11 builds are supported, but may need some small adjustments. Please report issue or create pull requests if you're able to patch some issues.
@@ -15,7 +14,7 @@ Instructions:
 
 ```
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-.\tiny11creator.ps1
+.\creator.ps1
 ```
 
 4. Sit back and relax :) (it runs for 13 minutes approximately on my old-but-decent laptop)
@@ -45,8 +44,3 @@ Speech support,
 TTS for en-gb,
 Media Player Legacy,
 Tablet PC Math
-
-Known issues:
-
-1. Microsoft Teams (personal) and Cortana are still here. If you find a way to remove them before I find one, feel free to help!
-2. Only en-gb x64 is supported as of now. This can be easily fixable by the end user, just by replacing every instance of en-gb with the language needed (like ro-RO and so on), and every x64 instance with arm64.

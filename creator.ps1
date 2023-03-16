@@ -7,12 +7,12 @@ $unwantedWindowsPackages = $config.WindowsPackagesToRemove
 $pathsToDelete = $config.PathsToDelete
 
 #Defining system variables
+$isoPath = Read-Host -Prompt 'Enter path to Windows 11 ISO:'
 Write-Output "Creating needed variables..."
 $rootWorkdir = "c:\tiny11\"
 $isoFolder = $rootWorkdir + "iso\"
 $installImageFolder = $rootWorkdir + "installimage\"
 $bootImageFolder = $rootWorkdir + "bootimage\"
-$isoPath = "c:\windows11.iso"
 $yes = (cmd /c "choice <nul 2>nul")[1]
 #The $yes variable gets the "y" from "yes" (or corresponding letter in the language your computer is using).
 #It is used to answer automatically to the "takeown" command, because the answer choices are localized which is not handy at all.
@@ -104,13 +104,6 @@ reg load HKLM\installwim_NTUSER ($installImageFolder + "Users\Default\ntuser.dat
 reg load HKLM\installwim_SOFTWARE ($installImageFolder + "Windows\System32\config\SOFTWARE") | Out-Null
 reg load HKLM\installwim_SYSTEM ($installImageFolder + "Windows\System32\config\SYSTEM") | Out-Null
 
-# Applying following registry patches on the system image:
-#Bypassing system requirements
-#Disabling Teams
-#Disabling Sponsored Apps
-#Enabling Local Accounts on OOBE
-#Disabling Reserved Storage
-#Disabling Chat icon
 regedit /s ./tools/installwim_patches.reg | Out-Null
 
 # Unloading the registry
@@ -171,8 +164,9 @@ Rename-Item -Path ($isoFolder + "sources\boot_patched.wim") -NewName "boot.wim" 
 [System.IO.File]::Copy((Get-ChildItem .\tools\autounattend.xml).FullName,($isoFolder + "autounattend.xml"),$true) | Out-Null
 
 #Building the new trimmed and patched iso file
-Write-Output "Building the tiny11.iso file..."
-cmd.exe /c "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder c:\tiny11.iso | Out-Null
+Write-Output "Building the ISO file..."
+$isoName = $wantedImageName.replace("\s+",'') + "-Patched.iso"
+cmd.exe /c "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder c:\$isoName | Out-Null
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."

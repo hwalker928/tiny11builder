@@ -23,16 +23,16 @@
     "Microsoft.ZuneMusic_",
     "Microsoft.ZuneVideo_",
     "MicrosoftCorporationII.MicrosoftFamily_",
-    "MicrosoftTeams_",
+    "MicrosoftTeams",
     "Microsoft.549981C3F5F10_"
   ],
   "WindowsPackagesToRemove": [
     "Microsoft-Windows-InternetExplorer-Optional-Package",
     "Microsoft-Windows-Kernel-LA57-FoD-Package",
-    "Microsoft-Windows-LanguageFeatures-Handwriting-en-gb-Package",
-    "Microsoft-Windows-LanguageFeatures-OCR-en-gb-Package",
-    "Microsoft-Windows-LanguageFeatures-Speech-en-gb-Package",
-    "Microsoft-Windows-LanguageFeatures-TextToSpeech-en-gb-Package",
+    "Microsoft-Windows-LanguageFeatures-Handwriting",
+    "Microsoft-Windows-LanguageFeatures-OCR",
+    "Microsoft-Windows-LanguageFeatures-Speech",
+    "Microsoft-Windows-LanguageFeatures-TextToSpeech",
     "Microsoft-Windows-MediaPlayer-Package",
     "Microsoft-Windows-TabletPCMath-Package"
   ],

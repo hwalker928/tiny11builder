@@ -42,7 +42,7 @@ Windows Registry Editor Version 5.00
 [HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\Windows Chat]
 "ChatIcon"=dword:00000003
 
-;Disable weather/widget in taskbar, align taskbar left, remove tasks button, open explorer in This PC instead of Home, remove checkboxes on files, show hidden files, show file extensions
+;Disable weather/widget in taskbar, remove tasks button, open explorer in This PC instead of Home, remove checkboxes on files, show hidden files, show file extensions
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
 "TaskbarMn"=dword:00000000
 "Hidden"=dword:00000001
@@ -51,7 +51,6 @@ Windows Registry Editor Version 5.00
 "UseCompactMode"=dword:00000001
 "LaunchTo"=dword:00000001
 "ShowTaskViewButton"=dword:00000000
-"TaskbarAl"=dword:00000000
 "TaskbarDa"=dword:00000000
 
 ;Disable new right click context menu
