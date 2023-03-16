@@ -57,7 +57,7 @@ foreach ($detectedProvisionnedPackage in $detectedProvisionnedPackages)
 		{
 		if ($detectedProvisionnedPackage.PackageName.Contains($unwantedProvisionnedPackage))
 		{
-			Write-Ouput "[DEBUG] Removing $($detectedProvisionnedPackage.PackageName)"
+			Write-Output "[DEBUG] Removing $($detectedProvisionnedPackage.PackageName)"
 			Remove-AppxProvisionedPackage -Path $installImageFolder -PackageName $detectedProvisionnedPackage.PackageName -ErrorAction SilentlyContinue | Out-Null
 		}
 		}
@@ -74,7 +74,7 @@ foreach ($detectedWindowsPackage in $detectedWindowsPackages)
 	{
 		if ($detectedWindowsPackage.PackageName.Contains($unwantedWindowsPackage))
 		{
-			Write-Ouput "[DEBUG] Removing $($detectedWindowsPackage.PackageName)"
+			Write-Output "[DEBUG] Removing $($detectedWindowsPackage.PackageName)"
 			Remove-WindowsPackage -Path $installImageFolder -PackageName $detectedWindowsPackage.PackageName -ErrorAction SilentlyContinue | Out-Null
 		}
 	}
@@ -84,7 +84,7 @@ Write-Output "Deleting PathsToDelete from the install.wim image..."
 foreach ($pathToDelete in $pathsToDelete)
 {
 	$fullpath = ($installImageFolder + $pathToDelete.Path)
-	Write-Ouput "[DEBUG] Deleting $fullpath [IsFolder: $($pathToDelete.IsFolder)"
+	Write-Output "[DEBUG] Deleting $fullpath [IsFolder: $($pathToDelete.IsFolder)"
 	if ($pathToDelete.IsFolder -eq $true)
 	{
 		takeown /f $fullpath /r /d $yes | Out-Null
