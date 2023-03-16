@@ -165,8 +165,8 @@ Rename-Item -Path ($isoFolder + "sources\boot_patched.wim") -NewName "boot.wim" 
 
 #Building the new trimmed and patched iso file
 Write-Output "Building the ISO file..."
-$isoName = $wantedImageName.replace("\s+",'') + "-Patched.iso"
-cmd.exe /c "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder c:\$isoName | Out-Null
+$isoName = "c:\" + $wantedImageName.replace("\s+",'') + "-Patched.iso"
+cmd.exe /c "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder $isoName | Out-Null
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."
