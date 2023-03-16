@@ -61,10 +61,6 @@ echo Removing PowerAutomate...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:Microsoft.PowerAutomateDesktop_2022.507.446.0_neutral_~_8wekyb3d8bbwe
 echo Removing ToDo...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:Microsoft.Todos_2022.507.447.0_neutral_~_8wekyb3d8bbwe
-echo Removing Alarms...
-dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsAlarms_2022.507.446.0_neutral_~_8wekyb3d8bbwe
-echo Removing Mail...
-dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:microsoft.windowscommunicationsapps_2022.507.447.0_neutral_~_8wekyb3d8bbwe
 echo Removing Feedback Hub...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:Microsoft.WindowsFeedbackHub_2022.507.447.0_neutral_~_8wekyb3d8bbwe
 echo Removing Maps...
@@ -87,8 +83,6 @@ echo Removing Video...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:Microsoft.ZuneVideo_2022.507.446.0_neutral_~_8wekyb3d8bbwe
 echo Removing Family...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:MicrosoftCorporationII.MicrosoftFamily_2022.507.447.0_neutral_~_8wekyb3d8bbwe
-echo Removing QuickAssist...
-dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:MicrosoftCorporationII.QuickAssist_2022.507.446.0_neutral_~_8wekyb3d8bbwe
 echo Removing Teams...
 dism /image:c:\scratchdir /Remove-ProvisionedAppxPackage /PackageName:MicrosoftTeams_23002.403.1788.1930_x64__8wekyb3d8bbwe
 echo Removing Cortana...
@@ -117,16 +111,7 @@ dism /image:c:\scratchdir /Remove-Package /PackageName:Microsoft-Windows-MediaPl
 dism /image:c:\scratchdir /Remove-Package /PackageName:Microsoft-Windows-MediaPlayer-Package~31bf3856ad364e35~wow64~~10.0.22621.1 > nul
 echo Removing Tablet PC Math:
 dism /image:c:\scratchdir /Remove-Package /PackageName:Microsoft-Windows-TabletPCMath-Package~31bf3856ad364e35~amd64~~10.0.22621.1265 > nul
-echo Removing Wallpapers:
-dism /image:c:\scratchdir /Remove-Package /PackageName:Microsoft-Windows-Wallpaper-Content-Extended-FoD-Package~31bf3856ad364e35~amd64~~10.0.22621.1265 > nul
 
-echo Removing Edge:
-rd "C:\scratchdir\Program Files (x86)\Microsoft\Edge" /s /q
-rd "C:\scratchdir\Program Files (x86)\Microsoft\EdgeUpdate" /s /q
-echo Removing OneDrive:
-takeown /f C:\scratchdir\Windows\System32\OneDriveSetup.exe
-icacls C:\scratchdir\Windows\System32\OneDriveSetup.exe /grant Administrators:F /T /C
-del /f /q /s "C:\scratchdir\Windows\System32\OneDriveSetup.exe"
 echo Removal complete!
 timeout /t 2 /nobreak > nul
 cls
