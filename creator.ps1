@@ -7,7 +7,7 @@ $unwantedWindowsPackages = $config.WindowsPackagesToRemove
 $pathsToDelete = $config.PathsToDelete
 
 #Defining system variables
-$isoPath = Read-Host -Prompt 'Enter path to Windows 11 ISO:'
+$isoPath = Read-Host -Prompt 'Enter path to Windows 11 ISO'
 Write-Output "Creating needed variables..."
 $rootWorkdir = "c:\tiny11\"
 $isoFolder = $rootWorkdir + "iso\"
