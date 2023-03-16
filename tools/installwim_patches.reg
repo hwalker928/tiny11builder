@@ -1,0 +1,77 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\installwim_DEFAULT\Control Panel\UnsupportedHardwareNotificationCache]
+"SV1"=dword:00000000
+"SV2"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Control Panel\UnsupportedHardwareNotificationCache]
+"SV1"=dword:00000000
+"SV2"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_SYSTEM\Setup\LabConfig]
+"BypassCPUCheck"=dword:00000001
+"BypassRAMCheck"=dword:00000001
+"BypassSecureBootCheck"=dword:00000001
+"BypassStorageCheck"=dword:00000001
+"BypassTPMCheck"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\installwim_SYSTEM\Setup\MoSetup]
+"AllowUpgradesWithUnsupportedTPMOrCPU"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\Windows\CurrentVersion\Communications]
+"ConfigureChatAutoInstall"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\ContentDeliveryManager]
+"OemPreInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEnabled"=dword:00000000
+"SilentInstalledAppsEnabled"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\CloudContent]
+"DisableWindowsConsumerFeatures"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\PolicyManager\current\device\Start]
+"ConfigureStartPins"="{\"pinnedList\": [{}]}"
+
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\Windows\CurrentVersion\OOBE]
+"BypassNRO"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\Windows\CurrentVersion\ReserveManager]
+"ShippedWithReserves"=dword:00000000
+
+;Disable chat icon in taskbar
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\Windows Chat]
+"ChatIcon"=dword:00000003
+
+;Disable weather/widget in taskbar, align taskbar left, remove tasks button, open explorer in This PC instead of Home, remove checkboxes on files, show hidden files, show file extensions
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"TaskbarMn"=dword:00000000
+"Hidden"=dword:00000001
+"HideFileExt"=dword:00000000
+"AutoCheckSelect"=dword:00000000
+"UseCompactMode"=dword:00000001
+"LaunchTo"=dword:00000001
+"ShowTaskViewButton"=dword:00000000
+"TaskbarAl"=dword:00000000
+"TaskbarDa"=dword:00000000
+
+;Disable new right click context menu
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32]
+@=""
+
+;Enable dark mode
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
+"ColorPrevalence"=dword:00000000
+"EnableTransparency"=dword:00000000
+"AppsUseLightTheme"=dword:00000000
+"SystemUsesLightTheme"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Themes]
+"WallpaperSetFromTheme"=dword:00000001
+"ColorSetFromTheme"=dword:00000001
+"CurrentTheme"="C:\\Windows\\resources\\Themes\\dark.theme"
+"SetupVersion"="10"
+"ThemeMRU"="C:\\Windows\\resources\\Themes\\dark.theme;C:\\Windows\\resources\\Themes\\aero.theme;"
+
+;Disable Search icon in taskbar
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Search]
+"SearchboxTaskbarMode"=dword:00000000

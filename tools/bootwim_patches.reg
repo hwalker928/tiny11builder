@@ -1,0 +1,19 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\bootwim_DEFAULT\Control Panel\UnsupportedHardwareNotificationCache]
+"SV1"=dword:00000000
+"SV2"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\bootwim_NTUSER\Control Panel\UnsupportedHardwareNotificationCache]
+"SV1"=dword:00000000
+"SV2"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\bootwim_SYSTEM\Setup\LabConfig]
+"BypassCPUCheck"=dword:00000001
+"BypassRAMCheck"=dword:00000001
+"BypassSecureBootCheck"=dword:00000001
+"BypassStorageCheck"=dword:00000001
+"BypassTPMCheck"=dword:00000001
+
+[HKEY_LOCAL_MACHINE\bootwim_SYSTEM\Setup\MoSetup]
+"AllowUpgradesWithUnsupportedTPMOrCPU"=dword:00000001
