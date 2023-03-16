@@ -57,6 +57,7 @@ foreach ($detectedProvisionnedPackage in $detectedProvisionnedPackages)
 		{
 		if ($detectedProvisionnedPackage.PackageName.Contains($unwantedProvisionnedPackage))
 		{
+			Write-Ouput "[DEBUG] Removing $($detectedProvisionnedPackage.PackageName)"
 			Remove-AppxProvisionedPackage -Path $installImageFolder -PackageName $detectedProvisionnedPackage.PackageName -ErrorAction SilentlyContinue | Out-Null
 		}
 		}
@@ -73,6 +74,7 @@ foreach ($detectedWindowsPackage in $detectedWindowsPackages)
 	{
 		if ($detectedWindowsPackage.PackageName.Contains($unwantedWindowsPackage))
 		{
+			Write-Ouput "[DEBUG] Removing $($detectedWindowsPackage.PackageName)"
 			Remove-WindowsPackage -Path $installImageFolder -PackageName $detectedWindowsPackage.PackageName -ErrorAction SilentlyContinue | Out-Null
 		}
 	}
@@ -82,7 +84,7 @@ Write-Output "Deleting PathsToDelete from the install.wim image..."
 foreach ($pathToDelete in $pathsToDelete)
 {
 	$fullpath = ($installImageFolder + $pathToDelete.Path)
-
+	Write-Ouput "[DEBUG] Deleting $fullpath [IsFolder: $($pathToDelete.IsFolder)"
 	if ($pathToDelete.IsFolder -eq $true)
 	{
 		takeown /f $fullpath /r /d $yes | Out-Null
@@ -104,7 +106,8 @@ reg load HKLM\installwim_NTUSER ($installImageFolder + "Users\Default\ntuser.dat
 reg load HKLM\installwim_SOFTWARE ($installImageFolder + "Windows\System32\config\SOFTWARE") | Out-Null
 reg load HKLM\installwim_SYSTEM ($installImageFolder + "Windows\System32\config\SYSTEM") | Out-Null
 
-regedit /s ./tools/installwim_patches.reg | Out-Null
+regedit /s ./tools/installwim_patches.reg
+regedit /s ./tools/edge_patches.reg
 
 # Unloading the registry
 reg unload HKLM\installwim_DEFAULT | Out-Null
@@ -166,7 +169,10 @@ Rename-Item -Path ($isoFolder + "sources\boot_patched.wim") -NewName "boot.wim" 
 #Building the new trimmed and patched iso file
 Write-Output "Building the ISO file..."
 $isoName = "c:\" + $wantedImageName.replace("\s+",'') + "-Patched.iso"
-cmd.exe /c "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder $isoName | Out-Null
+Write-Output "ISO file name: $isoName"
+
+$ADK = "CC:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg"
+$ADK\oscdimg.exe -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + $isoFolder + "boot\etfsboot.com#pEF,e,b" + $isoFolder + "efi\microsoft\boot\efisys.bin") $isoFolder $isoName
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."
