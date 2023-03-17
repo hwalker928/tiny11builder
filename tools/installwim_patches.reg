@@ -71,10 +71,30 @@ Windows Registry Editor Version 5.00
 "SetupVersion"="10"
 "ThemeMRU"="C:\\Windows\\resources\\Themes\\dark.theme;C:\\Windows\\resources\\Themes\\aero.theme;"
 
-;Disable Search icon in taskbar
+;Disable Search icon in taskbar & search changes
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Search]
 "SearchboxTaskbarMode"=dword:00000000
+"DeviceHistoryEnabled"=dword:00000000
+"HistoryViewEnabled"=dword:00000000
+"AllowSearchToUseLocation"=dword:00000000
+"BingSearchEnabled"=dword:00000000
+"CortanaConsent"=dword:00000000
 
 ;Disable Sticky Keys
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Control Panel\Accessibility\StickyKeys]
 "Flags"="506"
+
+;Disable Cortana
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\Windows Search]
+"AllowCortana"=dword:00000000
+"DisableWebSearch"=dword:00000001
+"ConnectedSearchUseWeb"=dword:00000000
+"ConnectedSearchUseWebOverMeteredConnections"=dword:00000000
+
+;Disable Telemetry
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\DataCollection]
+"AllowTelemetry"=dword:00000000
+
+;Disable Windows App tracking to improve Start and Search Results
+[HKEY_CURRENT_USER\installwim_SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
+"DisableMFUTracking"=dword:00000001
