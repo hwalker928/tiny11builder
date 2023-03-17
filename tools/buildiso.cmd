@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,b" + %1 + "boot\etfsboot.com#pEF,e,b" + %1 + "efi\microsoft\boot\efisys.bin") %1 %2

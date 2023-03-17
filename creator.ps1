@@ -168,10 +168,10 @@ Rename-Item -Path ($isoFolder + "sources\boot_patched.wim") -NewName "boot.wim" 
 
 #Building the new trimmed and patched iso file
 Write-Output "Building the ISO file..."
-$isoName = "c:\" + $wantedImageName.Trim() + "-Patched.iso"
+$isoName = "c:\" + "Win11Pro-Patched.iso"
 Write-Output "ISO file name: $isoName"
 
-Start-Process -FilePath "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -ArgumentList "-m -o -u2 -udfver102 -bootdata:(`"2#p0,e,b`" + $isoFolder + `"boot\etfsboot.com#pEF,e,b`" + $isoFolder + `"efi\microsoft\boot\efisys.bin`") $isoFolder $isoName" -Wait
+./tools/buildiso.cmd $isoFolder $isoName
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."
