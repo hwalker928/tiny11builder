@@ -1,6 +1,6 @@
 Windows Registry Editor Version 5.00
 
-[installwim_SYSTEM\Software\Policies\Microsoft\Edge]
+[HKEY_LOCAL_MACHINE\installwim_SYSTEM\Software\Policies\Microsoft\Edge]
 "DefaultPopupsSetting"=dword:02000000
 "DefaultGeolocationSetting"=dword:02000000
 "BackgroundModeEnabled"=dword:00000000
@@ -27,8 +27,8 @@ Windows Registry Editor Version 5.00
 "EdgeEDropEnabled"=dword:00000000
 "EdgeShoppingAssistantEnabled"=dword:00000000
 
-[installwim_SYSTEM\Software\Policies\Microsoft\Edge\ExtensionInstallWhitelist]
+[HKEY_LOCAL_MACHINE\installwim_SYSTEM\Software\Policies\Microsoft\Edge\ExtensionInstallWhitelist]
 "1"="odfafepnkmbhccpbejgmiehpchacaeak"
 
-[installwim_SYSTEM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist]
+[HKEY_LOCAL_MACHINE\installwim_SYSTEM\Software\Policies\Microsoft\Edge\ExtensionInstallForcelist]
 "1"="odfafepnkmbhccpbejgmiehpchacaeak"
