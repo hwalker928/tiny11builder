@@ -96,5 +96,5 @@ Windows Registry Editor Version 5.00
 "AllowTelemetry"=dword:00000000
 
 ;Disable Windows App tracking to improve Start and Search Results
-[HKEY_CURRENT_USER\installwim_SOFTWARE\Policies\Microsoft\Windows\EdgeUI]
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Policies\Microsoft\Windows\EdgeUI]
 "DisableMFUTracking"=dword:00000001
