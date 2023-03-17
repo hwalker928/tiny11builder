@@ -171,7 +171,7 @@ Write-Output "Building the ISO file..."
 $isoName = "c:\" + "Win11Pro-Patched.iso"
 Write-Output "ISO file name: $isoName"
 
-./tools/buildiso.cmd $isoFolder $isoName
+./tools/buildiso.cmd $isoName
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."
