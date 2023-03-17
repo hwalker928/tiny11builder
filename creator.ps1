@@ -171,7 +171,7 @@ Write-Output "Building the ISO file..."
 $isoName = "c:\" + $wantedImageName.Trim() + "-Patched.iso"
 Write-Output "ISO file name: $isoName"
 
-Start-Process -FilePath "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -ArgumentList "-m -o -u2 -udfver102 -bootdata:(`"2#p0,e,b`" + $isoFolder + `"boot\etfsboot.com#pEF,e,b`" + $isoFolder + `"efi\microsoft\boot\efisys.bin`") $isoFolder $isoName"
+Start-Process -FilePath "C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -ArgumentList "-m -o -u2 -udfver102 -bootdata:(`"2#p0,e,b`" + $isoFolder + `"boot\etfsboot.com#pEF,e,b`" + $isoFolder + `"efi\microsoft\boot\efisys.bin`") $isoFolder $isoName" -Wait
 
 #Cleaning the folders used during the process
 Write-Output "Removing work folders..."
