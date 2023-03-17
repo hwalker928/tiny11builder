@@ -8,8 +8,8 @@ Current and new Windows 11 builds are supported, but may need some small adjustm
 
 Instructions:
 
-1. Download latest Windows 11 iso from Microsoft website (<https://www.microsoft.com/software-download/windows11>).
-2. Place the downloaded file in C:\windows11.iso (be sure to rename it so that it match that filename).
+1. Download latest Windows 11 ISO (<https://www.microsoft.com/software-download/windows11>).
+2. Install the Windows ADK (<https://learn.microsoft.com/en-us/windows-hardware/get-started/adk-install>).
 3. Open a Powershell terminal with admin rights and run the following commands:
 
 ```
@@ -17,30 +17,5 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\creator.ps1
 ```
 
-4. Sit back and relax :) (it runs for 13 minutes approximately on my old-but-decent laptop)
-5. When the image is completed, you will see it in c:\tiny11.iso
-
-What is removed:
-Clipchamp,
-News,
-Weather,
-Xbox (although Xbox Identity provider is still here, so it should be possible to be reinstalled with no issues),
-GetHelp,
-GetStarted,
-Office Hub,
-Solitaire,
-PeopleApp,
-PowerAutomate,
-ToDo,
-Feedback Hub,
-Maps,
-Sound Recorder,
-Your Phone,
-Media Player,
-Internet Explorer,
-LA57 support,
-OCR for en-gb,
-Speech support,
-TTS for en-gb,
-Media Player Legacy,
-Tablet PC Math
+4. Sit back and relax :)
+5. When the image is completed, you will see it in C:\Win11Pro-Patched.iso
