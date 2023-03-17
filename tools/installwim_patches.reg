@@ -74,3 +74,7 @@ Windows Registry Editor Version 5.00
 ;Disable Search icon in taskbar
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Search]
 "SearchboxTaskbarMode"=dword:00000000
+
+;Disable Sticky Keys
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Control Panel\Accessibility\StickyKeys]
+"Flags"="506"

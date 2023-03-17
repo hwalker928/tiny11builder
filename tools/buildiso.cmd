@@ -1,1 +1,1 @@
-"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:("2#p0,e,bc:\tiny11\iso\boot\etfsboot.com#pEF,e,bc:\tiny11\iso\efi\microsoft\boot\efisys.bin") c:\tiny11\iso\ %2
+"C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Deployment Tools\amd64\Oscdimg\oscdimg.exe" -m -o -u2 -udfver102 -bootdata:2#p0,e,bc:\tiny11\iso\boot\etfsboot.com#pEF,e,bc:\tiny11\iso\efi\microsoft\boot\efisys.bin c:\tiny11\iso\ %1
