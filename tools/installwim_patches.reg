@@ -25,9 +25,16 @@ Windows Registry Editor Version 5.00
 "OemPreInstalledAppsEnabled"=dword:00000000
 "PreInstalledAppsEnabled"=dword:00000000
 "SilentInstalledAppsEnabled"=dword:00000000
+"PreInstalledAppsEverEnabled"=dword:00000000
+"SubscribedContent-338387Enabled"=dword:00000000
+"SubscribedContent-338388Enabled"=dword:00000000
+"SubscribedContent-338389Enabled"=dword:00000000
+"SubscribedContent-353698Enabled"=dword:00000000
+"SystemPaneSuggestionsEnabled"=dword:00000000
 
 [HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\CloudContent]
 "DisableWindowsConsumerFeatures"=dword:00000001
+"DisableTailoredExperiencesWithDiagnosticData"=dword:00000001
 
 [HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\PolicyManager\current\device\Start]
 "ConfigureStartPins"="{\"pinnedList\": [{}]}"
@@ -53,23 +60,15 @@ Windows Registry Editor Version 5.00
 "ShowTaskViewButton"=dword:00000000
 "TaskbarDa"=dword:00000000
 
+;Remove Search from the Taskbar
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Search]
+“SearchboxTaskbarMode”=dword:00000000
+
 ;Disable new right click context menu
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}]
+@=""
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32]
 @=""
-
-;Enable dark mode
-[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize]
-"ColorPrevalence"=dword:00000000
-"EnableTransparency"=dword:00000000
-"AppsUseLightTheme"=dword:00000000
-"SystemUsesLightTheme"=dword:00000000
-
-[HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Themes]
-"WallpaperSetFromTheme"=dword:00000001
-"ColorSetFromTheme"=dword:00000001
-"CurrentTheme"="C:\\Windows\\resources\\Themes\\dark.theme"
-"SetupVersion"="10"
-"ThemeMRU"="C:\\Windows\\resources\\Themes\\dark.theme;C:\\Windows\\resources\\Themes\\aero.theme;"
 
 ;Disable Search icon in taskbar & search changes
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Microsoft\Windows\CurrentVersion\Search]
@@ -94,7 +93,19 @@ Windows Registry Editor Version 5.00
 ;Disable Telemetry
 [HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\DataCollection]
 "AllowTelemetry"=dword:00000000
+"DoNotShowFeedbackNotifications"=dword:00000001
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection]
+"AllowTelemetry"=dword:00000000
 
 ;Disable Windows App tracking to improve Start and Search Results
 [HKEY_LOCAL_MACHINE\installwim_NTUSER\Software\Policies\Microsoft\Windows\EdgeUI]
 "DisableMFUTracking"=dword:00000001
+
+;Disable Windows App tracking to improve Start and Search Results
+[HKEY_LOCAL_MACHINE\installwim_SOFTWARE\Policies\Microsoft\Windows\System]
+"EnableActivityFeed"=dword:00000000
+"PublishUserActivities"=dword:00000000
+"UploadUserActivities"=dword:00000000
+
+[HKEY_LOCAL_MACHINE\installwim_NTUSER\SOFTWARE\Microsoft\Siuf\Rules]
+"NumberOfSIUFInPeriod"=dword:00000000
